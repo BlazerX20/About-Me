@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0a12">
+  <title>My Socials</title>
+
+  <style>
+    :root {
+      --bg: #0b0a12;
+      --text: #f7f2ff;
+      --muted: #b7abc9;
+      --glass: rgba(255,255,255,.075);
+      --border: rgba(255,255,255,.16);
+      --purple: #b48aff;
+      --pink: #f1a5e7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 24px 18px;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 10% 10%,
+          rgba(126, 57, 190, .24), transparent 42%),
+        radial-gradient(ellipse at 100% 60%,
+          rgba(66, 74, 175, .22), transparent 40%),
+        var(--bg);
+      font-family: system-ui, sans-serif;
+    }
+
+    /* Background glow */
+    .glow {
+      position: fixed;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      filter: blur(85px);
+      opacity: .32;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .glow.one {
+      background: #a44dff;
+      top: 18%;
+      left: -130px;
+    }
+
+    .glow.two {
+      background: #596bff;
+      right: -140px;
+      bottom: 10%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .brand {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .badge {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      background: var(--glass);
+      color: #d7c4ff;
+      font-size: 11px;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+    }
+
+    /* Profile */
+    .profile {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .avatar {
+      display: grid;
+      place-items: center;
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 22px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 28px;
+      background: linear-gradient(
+        145deg,
+        rgba(190,130,255,.4),
+        rgba(80,80,180,.2)
+      );
+      box-shadow:
+        0 0 35px rgba(165,100,255,.2),
+        inset 0 1px rgba(255,255,255,.3);
+      font-size: 35px;
+      transform: rotate(-5deg);
+    }
+
+    .eyebrow {
+      margin-bottom: 12px;
+      color: #c4a9e8;
+      font-size: 10px;
+      letter-spacing: 3px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 8vw, 42px);
+      letter-spacing: -2px;
+    }
+
+    h1 span {
+      color: var(--purple);
+    }
+
+    .description {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .hint {
+      margin-top: 23px;
+      color: #a99aba;
+      font-size: 12px;
+    }
+
+    /* Liquid glass cards */
+    .links {
+      display: grid;
+      gap: 14px;
+    }
+
+    .link-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 80px;
+      padding: 15px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: linear-gradient(
+        125deg,
+        rgba(255,255,255,.13),
+        rgba(255,255,255,.035) 60%,
+        rgba(170,120,255,.06)
+      );
+      box-shadow:
+        0 15px 35px rgba(0,0,0,.22),
+        inset 0 1px rgba(255,255,255,.17);
+      backdrop-filter: blur(22px) saturate(150%);
+      -webkit-backdrop-filter: blur(22px) saturate(150%);
+      text-decoration: none;
+      color: var(--text);
+      -webkit-tap-highlight-color: transparent;
+      transition: transform .2s, border-color .2s;
+      animation: appear .55s both;
+    }
+
+    .link-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        110deg,
+        rgba(255,255,255,.08),
+        transparent 42%,
+        transparent 70%,
+        rgba(190,145,255,.08)
+      );
+    }
+
+    .link-card:active {
+      transform: scale(.975);
+      border-color: rgba(190,145,255,.6);
+    }
+
+    .icon {
+      position: relative;
+      display: grid;
+      flex-shrink: 0;
+      place-items: center;
+      width: 45px;
+      height: 45px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 15px;
+      background: rgba(255,255,255,.09);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .tiktok {
+      color: white;
+      text-shadow: 2px 0 #ff4c9a, -2px 0 #46e9f4;
+    }
+
+    .instagram {
+      color: white;
+      background: linear-gradient(
+        140deg, #7046db, #d94d99, #ffb45e
+      );
+    }
+
+    .details {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .title {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11px;
+      overflow-wrap: anywhere;
+    }
+
+    .arrow {
+      position: relative;
+      color: #cbb5f2;
+      font-size: 20px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 34px 0 12px;
+      text-align: center;
+      color: #a99aba;
+      font-size: 12px;
+    }
+
+    .divider {
+      width: 65px;
+      height: 1px;
+      margin: 0 auto 15px;
+      background: linear-gradient(
+        90deg, transparent, #b99af1, transparent
+      );
+    }
+
+    footer small {
+      display: block;
+      margin-top: 9px;
+      font-size: 10px;
+      opacity: .7;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (min-width: 600px) {
+      body {
+        padding-top: 35px;
+      }
+
+      .link-card {
+        min-height: 84px;
+        padding: 17px 19px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <main class="container">
+
+    <header>
+      <div class="brand">✦ MY CORNER</div>
+      <div class="badge">● ONLINE</div>
+    </header>
+
+    <section class="profile">
+      <div class="avatar">✳</div>
+
+      <p class="eyebrow">A WORLD OF MY OWN</p>
+
+      <h1>My Socials<span>.</span></h1>
+
+      <p class="description">
+        not everyone knows my story
+      </p>
+
+      <p class="hint">find me around the internet ↘</p>
+    </section>
+
+    <section class="links">
+
+      <!-- TIKTOK 1 -->
+      <a class="link-card"
+         href="https://www.tiktok.com/@1412_z?_r=1&_t=ZS-9AevLIRNFhM"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="animation-delay:.05s">
+
+        <span class="icon tiktok">♪</span>
+
+        <span class="details">
+          <span class="title">ˣʸ𝐙𝐞𝐃 ♧</span>
+          <span class="subtitle">L2D edits • other edits • 10.2k+</span>
+        </span>
+
+        <span class="arrow">↗</span>
+      </a>
+
+      <!-- TIKTOK 2 -->
+      <a class="link-card"
+         href="https://www.tiktok.com/@blazerx20?_r=1&_t=ZS-9AevnTPLCmf"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="animation-delay:.12s">
+
+        <span class="icon tiktok">♪</span>
+
+        <span class="details">
+          <span class="title">ᵏᶦᵈspidey🕸</span>
+          <span class="subtitle">not everything makes the main.</span>
+        </span>
+
+        <span class="arrow">↗</span>
+      </a>
+
+      <!-- TIKTOK 3 -->
+      <a class="link-card"
+         href="https://www.tiktok.com/@ben.11.11n?_r=1&_t=ZS-9AewF72ZhZ6"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="animation-delay:.19s">
+
+        <span class="icon tiktok">♪</span>
+
+        <span class="details">
+          <span class="title">Bzzz 🐝</span>
+          <span class="subtitle">just me, unfiltered.</span>
+        </span>
+
+        <span class="arrow">↗</span>
+      </a>
+
+      <!-- INSTAGRAM -->
+      <a class="link-card"
+         href="https://www.instagram.com/b15_stp?cplk=N24wenJwcXc4dTYy"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="animation-delay:.26s">
+
+        <span class="icon instagram">◎</span>
+
+        <span class="details">
+          <span class="title">!uǝq</span>
+          <span class="subtitle">A little bit of everything.</span>
+        </span>
+
+        <span class="arrow">↗</span>
+      </a>
+
+    </section>
+
+    <footer>
+      <div class="divider"></div>
+      <p>that's all you need to know.</p>
+      <small>built with a little code · <span id="year"></span></small>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
