@@ -9,13 +9,13 @@
 
   <style>
     :root {
-      --bg: #0b0a12;
-      --text: #f7f2ff;
-      --muted: #b7abc9;
-      --glass: rgba(255,255,255,.075);
-      --border: rgba(255,255,255,.16);
-      --purple: #b48aff;
-      --pink: #f1a5e7;
+      --bg: #03060b;
+      --text: #edf6ff;
+      --muted: #91a5bc;
+      --glass: rgba(100, 170, 255, .055);
+      --border: rgba(100, 170, 255, .18);
+      --purple: #42a5ff;
+      --pink: #00d5ff;
     }
 
     * {
@@ -29,12 +29,19 @@
       padding: 24px 18px;
       overflow-x: hidden;
       color: var(--text);
-      background:
-        radial-gradient(ellipse at 10% 10%,
-          rgba(126, 57, 190, .24), transparent 42%),
-        radial-gradient(ellipse at 100% 60%,
-          rgba(66, 74, 175, .22), transparent 40%),
-        var(--bg);
+      
+background:
+  radial-gradient(
+    ellipse at 10% 10%,
+    rgba(0, 100, 255, .17),
+    transparent 42%
+  ),
+  radial-gradient(
+    ellipse at 100% 60%,
+    rgba(0, 190, 255, .11),
+    transparent 40%
+  ),
+  var(--bg);
       font-family: system-ui, sans-serif;
     }
 
@@ -51,13 +58,13 @@
     }
 
     .glow.one {
-      background: #a44dff;
+      background: #006eff;
       top: 18%;
       left: -130px;
     }
 
     .glow.two {
-      background: #596bff;
+      background: #00c8ff;
       right: -140px;
       bottom: 10%;
     }
@@ -88,7 +95,7 @@
       border: 1px solid var(--border);
       border-radius: 50px;
       background: var(--glass);
-      color: #d7c4ff;
+      color: #8ccaff;
       font-size: 11px;
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
@@ -109,20 +116,21 @@
       border: 1px solid rgba(255,255,255,.28);
       border-radius: 28px;
       background: linear-gradient(
-        145deg,
-        rgba(190,130,255,.4),
-        rgba(80,80,180,.2)
-      );
-      box-shadow:
-        0 0 35px rgba(165,100,255,.2),
-        inset 0 1px rgba(255,255,255,.3);
+  145deg,
+  rgba(0, 145, 255, .32),
+  rgba(0, 45, 100, .24)
+);
+
+box-shadow:
+  0 0 35px rgba(0, 110, 255, .16),
+  inset 0 1px rgba(255, 255, 255, .2);
       font-size: 35px;
       transform: rotate(-5deg);
     }
 
     .eyebrow {
       margin-bottom: 12px;
-      color: #c4a9e8;
+      color: #69b8ff;
       font-size: 10px;
       letter-spacing: 3px;
     }
@@ -133,7 +141,7 @@
     }
 
     h1 span {
-      color: var(--purple);
+      color: #42a5ff;
     }
 
     .description {
@@ -144,7 +152,7 @@
 
     .hint {
       margin-top: 23px;
-      color: #a99aba;
+      color: #ffffff;
       font-size: 12px;
     }
 
@@ -165,11 +173,11 @@
       border: 1px solid var(--border);
       border-radius: 22px;
       background: linear-gradient(
-        125deg,
-        rgba(255,255,255,.13),
-        rgba(255,255,255,.035) 60%,
-        rgba(170,120,255,.06)
-      );
+  125deg,
+  rgba(120, 180, 255, .09),
+  rgba(255, 255, 255, .018) 60%,
+  rgba(0, 100, 255, .055)
+);
       box-shadow:
         0 15px 35px rgba(0,0,0,.22),
         inset 0 1px rgba(255,255,255,.17);
@@ -187,18 +195,18 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(
-        110deg,
-        rgba(255,255,255,.08),
-        transparent 42%,
-        transparent 70%,
-        rgba(190,145,255,.08)
-      );
+ background: linear-gradient(
+  110deg,
+  rgba(150, 205, 255, .055),
+  transparent 42%,
+  transparent 70%,
+  rgba(0, 145, 255, .07)
+);
     }
 
     .link-card:active {
       transform: scale(.975);
-      border-color: rgba(190,145,255,.6);
+      border-color: rgba(45, 155, 255, .6);
     }
 
     .icon {
@@ -249,7 +257,7 @@
 
     .arrow {
       position: relative;
-      color: #cbb5f2;
+      color: #76bdff;
       font-size: 20px;
     }
 
@@ -257,7 +265,7 @@
     footer {
       padding: 34px 0 12px;
       text-align: center;
-      color: #a99aba;
+      color: #ffffff;
       font-size: 12px;
     }
 
@@ -266,7 +274,7 @@
       height: 1px;
       margin: 0 auto 15px;
       background: linear-gradient(
-        90deg, transparent, #b99af1, transparent
+        90deg, transparent, #258cff, transparent
       );
     }
 
@@ -305,22 +313,319 @@
         transition: none !important;
       }
     }
+    .signature {
+  color: #42a5ff;
+  font-weight: 800;
+  text-shadow: 0 0 12px rgba(66, 165, 255, .45);
+    }
+    
+/* MUSIC PLAYER */
+.music-player {
+  margin: 22px 0;
+  padding: 20px;
+  border: 1px solid rgba(66, 165, 255, .22);
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(66, 165, 255, .10),
+    rgba(3, 8, 18, .78)
+  );
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.music-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.vinyl {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #42a5ff;
+  font-size: 27px;
+  background: repeating-radial-gradient(
+    circle,
+    #101c2c 0 4px,
+    #1b2b40 5px 7px
+  );
+  border: 2px solid rgba(66, 165, 255, .55);
+  box-shadow: 0 0 18px rgba(66, 165, 255, .12);
+}
+
+.vinyl.playing {
+  animation: vinylSpin 4s linear infinite;
+}
+
+@keyframes vinylSpin {
+  to { transform: rotate(360deg); }
+}
+
+.music-details {
+  min-width: 0;
+}
+
+.music-label {
+  color: #42a5ff;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.music-details h3 {
+  color: #edf6ff;
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+.music-details p {
+  color: #91a5bc;
+  font-size: 11px;
+  margin: 0;
+}
+
+.music-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+#playBtn {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  border: 1px solid rgba(66, 165, 255, .4);
+  border-radius: 50%;
+  background: #10243b;
+  color: #65bdff;
+  font-size: 17px;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+#playBtn:active {
+  transform: scale(.92);
+}
+
+.music-progress {
+  flex: 1;
+  min-width: 0;
+}
+
+.progress-track {
+  height: 5px;
+  border-radius: 10px;
+  background: rgba(145, 165, 188, .2);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #42a5ff, #00d5ff);
+}
+
+.music-time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+  color: #91a5bc;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.music-status {
+  margin: 14px 0 0;
+  text-align: center;
+  color: #91a5bc;
+  font-size: 10px;
+}
+
+/* MUSIC PLAYER */
+.music-player {
+  margin: 22px 0;
+  padding: 20px;
+  border: 1px solid rgba(66, 165, 255, .22);
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(66, 165, 255, .10),
+    rgba(3, 8, 18, .78)
+  );
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.music-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.vinyl {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #42a5ff;
+  font-size: 27px;
+  background: repeating-radial-gradient(
+    circle,
+    #101c2c 0 4px,
+    #1b2b40 5px 7px
+  );
+  border: 2px solid rgba(66, 165, 255, .55);
+}
+
+.vinyl.playing {
+  animation: vinylSpin 4s linear infinite;
+}
+
+@keyframes vinylSpin {
+  to { transform: rotate(360deg); }
+}
+
+.music-details {
+  min-width: 0;
+}
+
+.music-label {
+  color: #42a5ff;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.music-details h3 {
+  color: #edf6ff;
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+.music-details p {
+  color: #91a5bc;
+  font-size: 11px;
+  margin: 0;
+}
+
+.music-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+#playBtn {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  border: 1px solid rgba(66, 165, 255, .4);
+  border-radius: 50%;
+  background: #10243b;
+  color: #65bdff;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.music-progress {
+  flex: 1;
+  min-width: 0;
+}
+
+.progress-track {
+  height: 5px;
+  border-radius: 10px;
+  background: rgba(145, 165, 188, .2);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #42a5ff, #00d5ff);
+}
+
+.music-time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+  color: #91a5bc;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.music-status {
+  margin: 14px 0 0;
+  text-align: center;
+  color: #91a5bc;
+  font-size: 10px;
+}
+
   </style>
 </head>
-
 <body>
   <div class="glow one"></div>
   <div class="glow two"></div>
+<div class="music-player">
+  <div class="music-top">
+    <div class="vinyl" id="vinyl">
+      <span>♫</span>
+    </div>
 
+    <div class="music-details">
+      <span class="music-label">NOW PLAYING</span>
+      <h3>My Favorite Song</h3>
+      <p>Nabi Palsu -HINDIA</p>
+    </div>
+  </div>
+
+  <audio id="bgMusic" preload="metadata">
+    <source src="song.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <div class="music-controls">
+    <button id="playBtn" type="button"
+      aria-label="Play music">▶</button>
+
+    <div class="music-progress">
+      <div class="progress-track" id="progressTrack">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="music-time">
+        <span id="currentTime">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
+    </div>
+  </div>
+
+  <p id="musicStatus" class="music-status">
+    press play to start the vibe
+  </p>
+</div>
   <main class="container">
 
     <header>
-      <div class="brand">✦ MY CORNER</div>
+      <div class="brand">➤ MY CORNER</div>
       <div class="badge">● ONLINE</div>
     </header>
 
     <section class="profile">
-      <div class="avatar">✳</div>
+      <div class="avatar">𝄞</div>
 
       <p class="eyebrow">A WORLD OF MY OWN</p>
 
@@ -405,17 +710,110 @@
 
     </section>
 
-    <footer>
-      <div class="divider"></div>
-      <p>that's all you need to know.</p>
-      <small>built with a little code · <span id="year"></span></small>
-    </footer>
+
+  <footer>
+    <div class="divider"></div>
+    <p>that's all you need to know.</p>
+    <small>
+      crafted by <span class="signature">BENI.</span>
+      · <span id="year"></span>
+    </small>
+  </footer>
 
   </main>
 
   <script>
     document.getElementById("year").textContent =
       new Date().getFullYear();
+
+    const music = document.getElementById("bgMusic");
+    const playBtn = document.getElementById("playBtn");
+    const vinyl = document.getElementById("vinyl");
+    const statusText = document.getElementById("musicStatus");
+    const progressFill = document.getElementById("progressFill");
+    const progressTrack = document.getElementById("progressTrack");
+    const currentTimeText = document.getElementById("currentTime");
+    const durationText = document.getElementById("duration");
+
+    if (music && playBtn && vinyl && statusText &&
+        progressFill && progressTrack &&
+        currentTimeText && durationText) {
+
+      function formatTime(seconds) {
+        if (!Number.isFinite(seconds)) return "0:00";
+        const min = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60);
+        return min + ":" + String(sec).padStart(2, "0");
+      }
+
+      playBtn.addEventListener("click", async () => {
+        if (music.paused) {
+          try {
+            await music.play();
+          } catch (error) {
+            statusText.textContent =
+              "Can't play music. Check your MP3 file.";
+          }
+        } else {
+          music.pause();
+        }
+      });
+
+      music.addEventListener("play", () => {
+        playBtn.textContent = "Ⅱ";
+        vinyl.classList.add("playing");
+        statusText.textContent = "now vibing to the music ♬";
+      });
+
+      music.addEventListener("pause", () => {
+        playBtn.textContent = "▶";
+        vinyl.classList.remove("playing");
+
+        if (!music.ended) {
+          statusText.textContent = "paused — take your time";
+        }
+      });
+
+      music.addEventListener("loadedmetadata", () => {
+        durationText.textContent = formatTime(music.duration);
+      });
+
+      music.addEventListener("timeupdate", () => {
+        currentTimeText.textContent = formatTime(music.currentTime);
+
+        if (Number.isFinite(music.duration) && music.duration > 0) {
+          progressFill.style.width =
+            (music.currentTime / music.duration * 100) + "%";
+        }
+      });
+
+      progressTrack.addEventListener("click", (event) => {
+        if (!Number.isFinite(music.duration) ||
+            music.duration <= 0) return;
+
+        const rect = progressTrack.getBoundingClientRect();
+        const position = (event.clientX - rect.left) / rect.width;
+
+        music.currentTime =
+          Math.max(0, Math.min(1, position)) * music.duration;
+      });
+
+      music.addEventListener("ended", () => {
+        playBtn.textContent = "▶";
+        vinyl.classList.remove("playing");
+        statusText.textContent = "song finished — replay it? ♡";
+      });
+
+      music.addEventListener("error", () => {
+        statusText.textContent =
+          "Music file not found. Check song.mp3";
+      });
+    } else {
+      console.warn(
+        "Music player elements missing. Check your HTML player IDs."
+      );
+    }
   </script>
+
 </body>
 </html>
